@@ -16,6 +16,7 @@ Table of content:
 - [Contributing](#contributing)
 - [Extending](#extending)
 - [Developers note](#developers-note)
+- [Changelog](#changelog)
 
 [Go to top](#table-of-content)
 
@@ -137,5 +138,11 @@ You have to use:
 ````
 
 The rendering process is at the very end of the Drupal's chain of preprocess, process and render functions.
+
+[Go to top](#table-of-content)
+
+# Changelog
+
+The changelog is automatically generated thanks to [GitHub Changelog Generator](https://github.com/skywinder/github-changelog-generator).
 
 [Go to top](#table-of-content)
