@@ -1,5 +1,8 @@
 language: php
 
+git:
+  depth: 1
+
 php:
   - 5.6
 
@@ -47,7 +50,12 @@ script:
 
 after_success:
   - cd $TRAVIS_BUILD_DIR/test-site/web
+  - drush dl zen mothership bootstrap
   - ../vendor/bin/drush vset theme_default bartik
+  - ab -n 500 -kc 10 http://127.0.0.1/
+  - ../vendor/bin/drush vset theme_default zen
+  - ab -n 500 -kc 10 http://127.0.0.1/
+  - ../vendor/bin/drush vset theme_default mothership
   - ab -n 500 -kc 10 http://127.0.0.1/
   - ../vendor/bin/drush vset theme_default atomium
   - ab -n 500 -kc 10 http://127.0.0.1/
@@ -55,6 +63,10 @@ after_success:
   - ../vendor/bin/drush en devel_generate -y
   - ../vendor/bin/drush generate-content 50
   - ../vendor/bin/drush vset theme_default bartik
+  - ab -n 500 -kc 10 http://127.0.0.1/
+  - ../vendor/bin/drush vset theme_default zen
+  - ab -n 500 -kc 10 http://127.0.0.1/
+  - ../vendor/bin/drush vset theme_default mothership
   - ab -n 500 -kc 10 http://127.0.0.1/
   - ../vendor/bin/drush vset theme_default atomium
   - ab -n 500 -kc 10 http://127.0.0.1/
